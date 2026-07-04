@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,13 +25,10 @@ const Login = () => {
         { withCredentials: true },
       );
       dispatch(addUser(res.data));
-      console.log(res.data);
       return navigate("/");
 
     } catch (err) {
-      console.log(err.response);
-      console.log(err.response?.data);
-      console.log(err.response?.status);
+      setError(err?.response?.data || "An error occurred during login.");
     }
   };
 
@@ -67,7 +65,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </fieldset>
-
+          {error && <p className="text-sm text-red-500">{error}</p>}
           <div className="card-actions mt-6">
             <button className="btn btn-primary w-full" onClick={handleLogin}>
               Login
