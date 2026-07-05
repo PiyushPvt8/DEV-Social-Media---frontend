@@ -68,11 +68,9 @@ const NavBar = () => {
       {/* Show user section only when user exists */}
       {user && (
         <div className="flex items-center gap-4">
-          <div className="dropdown dropdown-end flex items-center gap-2">
-            {/* Welcome Message */}
+          <div className="dropdown dropdown-end flex items-center gap-4">
             <p className="hidden sm:block">Welcome, {user.firstName}!</p>
 
-            {/* Avatar Button */}
             <div
               tabIndex={0}
               role="button"
@@ -108,7 +106,6 @@ const NavBar = () => {
               </div>
             </div>
 
-            {/* Dropdown Menu */}
             <ul
               tabIndex={0}
               className="
@@ -116,7 +113,7 @@ const NavBar = () => {
                 menu-sm
                 dropdown-content
                 z-10
-                mt-3
+                mt-15
                 w-56
                 rounded-box
                 border
@@ -127,7 +124,6 @@ const NavBar = () => {
                 shadow-xl
               "
             >
-              {/* Profile */}
               <li>
                 <button
                   onClick={handleProfileClick}
@@ -162,6 +158,23 @@ const NavBar = () => {
                   focus:text-primary-content"
                   >
                   <span className="flex-1 text-left">Connections</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/user/request/received"
+                  className="
+                  transition-colors
+                  duration-200 
+                  hover:bg-primary
+                  hover:text-primary-content
+                  active:bg-secondary
+                  active:text-secondary-content
+                  focus:bg-primary
+                  focus:text-primary-content"
+                  >
+                  <span className="flex-1 text-left">Requests</span>
                 </Link>
               </li>
 
