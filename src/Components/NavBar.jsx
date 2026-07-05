@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { DEFAULT_AVATAR, BASE_URL } from "../utils/constants";
-import { removeUser } from "../utils/userSlice";
+import { removeUser } from "../utils/userSlice"; 
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const user = useSelector((state) => state.user);
@@ -147,24 +148,23 @@ const NavBar = () => {
                 </button>
               </li>
 
-              {/* Settings */}
               <li>
-                <button
-                  onClick={handleSettingsClick}
+                <Link
+                  to="/user/connections"
                   className="
-                    transition-colors
-                    duration-200
-                    hover:bg-primary
-                    hover:text-primary-content
-                    active:bg-secondary
-                    active:text-secondary-content
-                  "
-                >
-                  Settings
-                </button>
+                  transition-colors
+                  duration-200 
+                  hover:bg-primary
+                  hover:text-primary-content
+                  active:bg-secondary
+                  active:text-secondary-content
+                  focus:bg-primary
+                  focus:text-primary-content"
+                  >
+                  <span className="flex-1 text-left">Connections</span>
+                </Link>
               </li>
 
-              {/* Logout */}
               <li>
                 <button
                   onClick={handleLogout}
