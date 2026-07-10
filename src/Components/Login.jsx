@@ -89,7 +89,7 @@ const Login = () => {
         },
       );
 
-      dispatch(addUser(res.data));
+      dispatch(addUser(res.data.user));
 
       // New account should always start with fresh feed state
       dispatch(clearFeed());
